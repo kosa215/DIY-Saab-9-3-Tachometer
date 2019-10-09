@@ -24,12 +24,19 @@ Occasionally while driving I would find myself wondering what gear I was in, esp
 I did a lot of things in order to get this thing done. I'll try to recount them chronologically.
 
 ### Step 1 - Design the tachometer and integrate it into Python.
-The first thing I did was take a detailed picture of my car's tachometer, and trace it in Inkscape. Now I had a digital copy of the background of the gauge, as well as a digital copy of the needle. I applied a little styling, saved them both as separate files, then used the pygame module in python to draw them when I ran my Python script. The result is below.
+The first thing I did was take a detailed picture of my car's tachometer, and trace it in Inkscape. Now I had a digital copy of the background of the gauge, as well as a digital copy of the needle. I applied a little styling, saved them both as separate files, then used the pygame module in python to draw them when I ran my Python script. I also wrote some code for rotating the needle based on an RPM value. The result is below.
 
 ![before and after.](/images/tach_compare.png)
 
 ### Step 2 - Get it onto the Raspberry Pi
-This step was pretty simple. I was running Raspbian on the Pi, so all I had to do was clone my private git repository. After doing that I had the file on the Pi. Next I had to set up the Touch Screen and Case. After applying some elbow grease, I now had the Raspberry Pi inside the case, connected to the screen. I connected a USB
+This step was pretty simple. I was running Raspbian on the Pi, so all I had to do was clone my private git repository. After doing that I had the file on the Pi. Next I had to set up the Touch Screen and Case. After applying some elbow grease, I now had the Raspberry Pi inside the case, connected to the screen. I connected a wireless USB keyboard+mouse combo that I used for most of my in-vehicle development.
+
+### Step 3 - Connect Arduino to Pi and OBDII 
+Physically, the connection here goes:
+
+OBDII port near brake pedal -> ODBII-to-DB9 cable -> CAN shield -> Arduino -> USB cable -> Raspberry Pi
+
+The setup was kind of [messy](/videos/messy.gif) at this point, but I had what I needed to start messing around with the vehicle. I implemented a basic CAN reader program using the 
 
 ## Future tasks
 -Hijack text-display on Saab panel to display the gear.
