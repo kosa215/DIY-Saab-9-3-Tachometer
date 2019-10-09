@@ -1,11 +1,7 @@
 # DIY Saab 9-3 Tachometer
 
 ## Motivation
-A few months after buying my first manual transmission [vehicle](/images/saab_exterior.jpg), I was having a lot of fun with it but found myself with a problem I wanted to solve. I ended up learning a lot about CAN-networking, Raspberry Pi, and bluetooth communication.
-
-Below is the what the information panel looks like on the car before modification. It's pretty basic - tachometer on the left, spedometer in the middle, some other gauges on the right, text display on the bottom, and some indicator lights throughout. 
-
-![Sometimes shit happens.](/images/saab_dash.jpg)
+A few months after buying my first manual transmission [vehicle](/images/saab_exterior.jpg), I was having a lot of fun with it but found myself with a problem I wanted to solve. In doing so I ended up learning a lot about CAN-networking, Raspberry Pi, and bluetooth communication.
 
 ## Big Picture Idea
 Occasionally while driving I would find myself wondering what gear I was in, especially if I hadn't recently changed gears. Yes, I could just remember. Yes, I could compare RPMs to vehicle speed in my head. Yes, I could look at the shifter and try to tell whether it was in 4th, or slightly to the right in 6th. But none of those solutions would let me tinker with my big boy toys.
@@ -27,7 +23,11 @@ So I set out to install a screen in my car that would show me what gear I am in.
 I did a lot of things in order to get this thing done. I'll try to recount them chronologically.
 
 ### Step 1 - Design the tachometer and integrate it into Python.
-The first thing I did was take a detailed picture of my car's tachometer, and trace it in Inkscape. Now I had a digital copy of the background of the gauge, as well as a digital copy of the needle. I applied a little styling, saved them both as separate files, then used the pygame module in python to draw them when I ran my Python script. I also wrote some code for rotating the needle based on an RPM value. The result is below.
+Below is the what the information panel looks like on the car before modification. It's pretty basic - tachometer on the left, spedometer in the middle, some other gauges on the right, text display on the bottom, and some indicator lights throughout. 
+
+![Sometimes shit happens.](/images/saab_dash.jpg)
+
+The first thing I did was take a detailed picture of the tachometer, and trace it in Inkscape. Now I had a digital copy of the background of the gauge, as well as a digital copy of the needle. I applied a little styling, saved them both as separate files, then used the pygame module in python to draw them when I ran my Python script. I also wrote some code for rotating the needle based on an RPM value. The result is below.
 
 ![before and after.](/images/tach_compare.png)
 
