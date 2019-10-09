@@ -18,7 +18,7 @@ Occasionally while driving I would find myself wondering what gear I was in, esp
 [seeed CAN Shield](https://www.amazon.com/gp/product/B076DSQFXH/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1)  
 [DB9-to-OBDII cable](https://www.amazon.com/gp/product/B01ETRINYO/ref=ppx_yo_dt_b_asin_title_o04_s01?ie=UTF8&psc=1)  
 
-
+[Cheap bluetooth OBDII reader](https://www.amazon.com/gp/product/B01BY2CK32/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
 
 ## Future tasks
 -Hijack text-display on Saab panel to display the gear.
