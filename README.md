@@ -28,5 +28,8 @@ The first thing I did was take a detailed picture of my car's tachometer, and tr
 
 ![before and after.](/images/tach_compare.png)
 
+### Step 2 - Get it onto the Raspberry Pi
+This step was pretty simple. I was running Raspbian on the Pi, so all I had to do was clone my private git repository. After doing that I had the file on the Pi. Next I had to set up the Touch Screen and Case. After applying some elbow grease, I now had the Raspberry Pi inside the case, connected to the screen. I connected a USB
+
 ## Future tasks
 -Hijack text-display on Saab panel to display the gear.
