@@ -26,7 +26,7 @@ I did a lot of things in order to get this thing done. I'll try to recount them 
 ### Step 1 - Design the tachometer and integrate it into Python.
 The first thing I did was take a detailed picture of my car's tachometer, and trace it in Inkscape. Now I had a digital copy of the background of the gauge, as well as a digital copy of the needle. I applied a little styling, saved them both as separate files, then used the pygame module in python to draw them when I ran my Python script. The result is below.
 
-![before and after.](/images/tach_compare.jpg)
+![before and after.](/images/tach_compare.png)
 
 ## Future tasks
 -Hijack text-display on Saab panel to display the gear.
