@@ -1,7 +1,7 @@
 # DIY Saab 9-3 Tachometer
 
 ## Motivation
-A few months after buying my first manual transmission [vehicle](/images/saab_exterior.jpg), I was having a lot of fun with it but found myself with a problem I wanted to solve. In doing so I ended up learning a lot about CAN-networking, Raspberry Pi, and bluetooth communication.
+A few months after buying my first manual transmission [vehicle](/images/saab_exterior.jpg) (a 2007 Saab 9-3 Aero), I was having a lot of fun with it but found myself with a problem I wanted to solve. In doing so I ended up learning a lot about CAN-networking, Raspberry Pi, and bluetooth communication.
 
 ## Big Picture Idea
 Occasionally while driving I would find myself wondering what gear I was in, especially if I hadn't recently changed gears. Yes, I could just remember. Yes, I could compare RPMs to vehicle speed in my head. Yes, I could look at the shifter and try to tell whether it was in 4th, or slightly to the right in 6th. But none of those solutions would let me tinker with my big boy toys.
