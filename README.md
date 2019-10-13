@@ -1,4 +1,4 @@
-# DIY Saab 9-3 Tachometer
+# DIY Saab 9-3 Tachometer (WORK IN PROGRESS)
 
 ## Motivation
 A few months after buying my first manual transmission [vehicle](/images/saab_exterior.jpg) (a 2007 Saab 9-3 Aero), I was having a lot of fun with it but found myself with a problem I wanted to solve. In doing so I ended up learning a lot about CAN-networking, Raspberry Pi, and bluetooth communication.
