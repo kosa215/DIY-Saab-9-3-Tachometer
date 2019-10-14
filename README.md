@@ -67,7 +67,7 @@ A lot of the reviewing was easy - many of the plots were meaningless noise, whic
 <p align="center"><img src="/images/canmap.png" alt="Map"></p>
 
 
-What I found was that engine RPM seemed to match 0x110 bytes 2 and 3, multiplied by 4. I also found that vehicle speed seemed to match pairs of bytes in 0x280, divided by 5 (probably each pair is one corner of the car). That was enough to move on to the next section.
+What I found was that engine RPM seemed to match 0x110 bytes 2 and 3, multiplied by 4. I also found that vehicle speed seemed to match pairs of bytes in 0x280, divided by 5 (probably each pair is one corner of the car). That was enough to move on to the next task.
 
 
 ## Future tasks
