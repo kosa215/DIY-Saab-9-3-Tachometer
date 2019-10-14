@@ -69,6 +69,15 @@ A lot of the reviewing was easy - many of the plots were meaningless noise, whic
 
 What I found was that engine RPM seemed to match 0x110 bytes 2 and 3, multiplied by 4. I also found that vehicle speed seemed to match pairs of bytes in 0x280, divided by 5 (probably each pair is one corner of the car). That was enough to move on to the next task.
 
+### Step 5 - Collect data for gear ratios
+
+### Step 6 - Finish tachometer v1
+
+### Step 7 - Get rid of the cords
+
+### Final Thoughts
+
+
 
 ## Future tasks
 -Hijack text-display on Saab panel to display the gear.
