@@ -53,10 +53,14 @@ The information I'm interested in for this project is engine RPM and vehicle spe
 \
 \
 To make comparison easier, I made a [GUI](/code/Reverse_Engineering/reverse_engineering.py) in python to help me rapidly review results. Basically the script would load a text file of CAN data, and then separate the messages so that those with the same message identifier were grouped together. It asks the user to select a message identifier, and a single byte or pair of bytes to review. It then plots the selected submessage data over time, at which point I reviewed each.
-\
+
+
+
+
 <p align="center"><img src="/images/gui2.png" alt="Vehicle speed"></p>
 
-\
+
+
 A lot of the reviewing was easy - many of the plots were meaningless noise, which would only make sense when viewed in a different way or combined with other bits. In others, I saw trends that resembled physical quantities - what looked like a speed profile, or a steering profile, or a brake pedal profile. I lucked out in that I was interpreting the bits in Big-Endian and got meaningful data. The messages could have been Little-Endian instead, in which case I would have had to interpret them the opposite direction, but they weren't, so I didn't. After some more experimentation, I arrived at my homegrown DIY 2007 Saab 9-3 CAN [map](/linktomap). I didn't completely finish that - there are some signals I couldn't decode or figure out what they were, but I got what I needed and more. Among other reasons, some submessages remain uncharted likely because they start or end in the middle of one of the bytes, or are composed of more than 2 bytes. 
 \
 \
