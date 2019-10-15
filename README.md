@@ -96,7 +96,7 @@ I identified the standard PIDs and scalings for engine speed and wrote some code
 I had a lot of fun working on this and hope someone finds it interesting and maybe even useful!
 
 ## Future potential improvements
--Wifi-direct connection instead of bluetooth to increase data rate and defeat buffer overflows.
--Hijack text-display on Saab panel to display the gear.
--Display other interesting things.
--Incorporate into custom Android Auto Raspberry Pi software
+-Wifi-direct connection instead of bluetooth to increase data rate and defeat buffer overflows.  
+-Hijack text-display on Saab panel to display the gear.  
+-Display other interesting things.  
+-Incorporate into custom Android Auto Raspberry Pi software  
