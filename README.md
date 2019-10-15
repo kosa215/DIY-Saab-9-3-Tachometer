@@ -93,7 +93,7 @@ I identified the standard PIDs and scalings for engine speed and wrote some code
 
 ### Final Thoughts
 
-I had a lot of fun working on this and hope someone finds it interesting and/or useful.
+I had a lot of fun working on this and hope someone finds it interesting and maybe even useful!
 
 ## Future potential improvements
 -Wifi-direct connection instead of bluetooth to increase data rate and defeat buffer overflows.
