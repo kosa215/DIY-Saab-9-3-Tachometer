@@ -91,11 +91,11 @@ With the arduino, I was reading the first type of message. When I tried to do th
 
 I identified the standard PIDs and scalings for engine speed and wrote some code to rapidly query the bluetooth reader for both. If I asked for the information too often, it would fail to send the responses in time, so I had to settle on a compromise of speed and stability. In the end this method ended up being a little bit choppier than the original, but works just as well and has successfully been telling me what gear I'm in for a few months now.
 
-### Final Thoughts
+## Final Thoughts
 
 I had a lot of fun working on this and hope someone finds it interesting and maybe even useful!
 
-## Future potential improvements
+### Future potential improvements
 -Wifi-direct connection instead of bluetooth to increase data rate and defeat buffer overflows.  
 -Hijack text-display on Saab panel to display the gear.  
 -Display other interesting things.  
