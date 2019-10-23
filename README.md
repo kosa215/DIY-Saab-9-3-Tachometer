@@ -89,7 +89,9 @@ There are 2 main types of things that you can read through an OBDII port:
 
 With the arduino, I was reading the first type of message. When I tried to do the same with the bluetooth reader, it would work for a few seconds but then tell me that the buffer overflowed and no more data could be read. I tried messing with filters, continuous resetting of the connection, and a few other things, but none of it allowed me to get a steady and stable stream of data like I had with the Arduino. It appeared to be a limitation of the bluetooth protocol - data would start piling up on the bluetooth reader faster than it could transmit to the Raspberry Pi. If the messages I was interested in were coming in at a slower rate, I might have been able to get this to work, but they weren't, so I couldn't. So I started playing with the second type of message (query-and-response).
 
-I identified the standard PIDs and scalings for engine speed and vehicle speed and wrote some code to rapidly query the bluetooth reader for both, and read its responses. If I asked for the information too often, it would fail to send the responses in time, so I had to settle on a compromise of speed and stability. In the end this method ended up being a little bit choppier than the original, but works just as well and has successfully been telling me what gear I'm in for a few months now. Code is [here](/code/Wired_Tach). Below is a demonstration of where it ended up. 
+I identified the standard PIDs and scalings for engine speed and vehicle speed and wrote some code to rapidly query the bluetooth reader for both, and read its responses. If I asked for the information too often, it would fail to send the responses in time, so I had to settle on a compromise of speed and stability. In the end this method ended up being a little bit choppier than the original, but works just as well and has successfully been telling me what gear I'm in for a few months now. Code is [here](/code/Bluetooth_Tach). Below is a demonstration of where it ended up. 
+
+INSERT LINK TO BLUETOOTH VIDEO
 
 ## Final Thoughts
 
