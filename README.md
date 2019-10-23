@@ -1,4 +1,4 @@
-# DIY Saab 9-3 Tachometer (WORK IN PROGRESS)
+# DIY Saab 9-3 Tachometer
 
 ## Motivation
 A few months after buying my first manual transmission [vehicle](/images/saab_exterior.jpg) (a 2007 Saab 9-3 Aero), I was having a lot of fun with it but found myself with a problem I wanted to solve. In doing so I ended up learning a lot about CAN-networking, Raspberry Pi, and bluetooth communication.
@@ -75,13 +75,13 @@ In order to detect what gear I am in at any point in time, I needed to find what
 
 ### Step 6 - Finish tachometer v1
 
-Now I had everything I needed. I modified the arduino code so that it only passed messages 0x110 and 0x280 to the Raspberry Pi, and set up the python script to parse the messages and display the current RPM and estimated gear. Everything worked pretty well at this stage, but I had a lot of cords, so I wanted to see what I could do about that. Code is [here](/code/Wired_Tach)
+Now I had everything I needed. I modified the arduino code so that it only passed messages 0x110 and 0x280 to the Raspberry Pi, and set up the python script to parse the messages and display the current RPM and estimated gear. Everything worked pretty well at this stage, but I had a lot of cords, so I wanted to see what I could do about that. Code is [here](/code/Wired_Tach).
 
 INSERT PICTURE OF Arduino and dark gui
 
 ### Step 7 - Get rid of (most of) the cords
 
-At a minimum I knew I needed the Raspberry Pi, power to the Raspberry Pi, and some sort of connection to the OBDII port. I looked into OBDII shields and adapters for the Raspberry Pi, but they all were either too expensive or wouldn't fit with the packaging constraint of the enclosed LCD screen. I decided to try a cheap bluetooth OBDII reader from Amazon, which I figured should work since Raspberry Pi 3s have bluetooth compatibility out of the box. I spent quite a while diving into setting up the bluetooth communication to the Raspberry Pi, and ultimately was able to get similar results to when the Arduino was in the loop... for a few seconds at a time. 
+At a minimum I knew I needed the Raspberry Pi, power to the Raspberry Pi, and some sort of connection to the OBDII port. I looked into OBDII shields and adapters for the Raspberry Pi, but they all were either too expensive or wouldn't fit with the packaging constraint of the enclosed LCD screen. I decided to try a cheap bluetooth OBDII reader from Amazon, which I figured should work since Raspberry Pi 3s have bluetooth compatibility out of the box. The only connections in my new system would be (1) 12V cigarette lighter power to Raspberry Pi, (2) Bluetooth code reader to OBDII port. I spent quite a while diving into setting up the bluetooth communication to the Raspberry Pi, and ultimately was able to get similar results to when the Arduino was in the loop... for a few seconds at a time. 
 
 There are 2 main types of things that you can read through an OBDII port:
 1) CAN messages being sent between ECUs within the vehicle, which would be there whether you were plugged in or not
@@ -89,7 +89,7 @@ There are 2 main types of things that you can read through an OBDII port:
 
 With the arduino, I was reading the first type of message. When I tried to do the same with the bluetooth reader, it would work for a few seconds but then tell me that the buffer overflowed and no more data could be read. I tried messing with filters, continuous resetting of the connection, and a few other things, but none of it allowed me to get a steady and stable stream of data like I had with the Arduino. It appeared to be a limitation of the bluetooth protocol - data would start piling up on the bluetooth reader faster than it could transmit to the Raspberry Pi. If the messages I was interested in were coming in at a slower rate, I might have been able to get this to work, but they weren't, so I couldn't. So I started playing with the second type of message (query-and-response).
 
-I identified the standard PIDs and scalings for engine speed and vehicle speed and wrote some code to rapidly query the bluetooth reader for both, and read its responses. If I asked for the information too often, it would fail to send the responses in time, so I had to settle on a compromise of speed and stability. In the end this method ended up being a little bit choppier than the original, but works just as well and has successfully been telling me what gear I'm in for a few months now. Below is a demonstration of where I ended up. The only connections in the final system are (1) 12V cigarette lighter power to Raspberry Pi, (2) Bluetooth code reader to OBDII port.
+I identified the standard PIDs and scalings for engine speed and vehicle speed and wrote some code to rapidly query the bluetooth reader for both, and read its responses. If I asked for the information too often, it would fail to send the responses in time, so I had to settle on a compromise of speed and stability. In the end this method ended up being a little bit choppier than the original, but works just as well and has successfully been telling me what gear I'm in for a few months now. Code is [here](/code/Wired_Tach). Below is a demonstration of where it ended up. 
 
 ## Final Thoughts
 
