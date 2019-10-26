@@ -77,7 +77,8 @@ In order to detect what gear I am in at any point in time, I needed to find what
 
 Now I had everything I needed. I modified the arduino code so that it only passed messages 0x110 and 0x280 to the Raspberry Pi, and set up the python script to parse the messages and display the current RPM and estimated gear. Everything worked pretty well at this stage, but I had a lot of cords, so I wanted to see what I could do about that. Code is [here](/code/Wired_Tach).
 
-INSERT PICTURE OF Arduino and dark gui
+[![Tachometer v1](https://img.youtube.com/vi/LojyD4g5m5Q/0.jpg)](https://www.youtube.com/watch?v=LojyD4g5m5Q)
+
 
 ### Step 7 - Get rid of (most of) the cords
 
