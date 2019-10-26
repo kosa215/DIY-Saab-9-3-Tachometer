@@ -40,7 +40,7 @@ Physically, the connection here goes:
 
 OBDII port near brake pedal -> ODBII-to-DB9 cable -> CAN shield -> Arduino -> USB cable -> Raspberry Pi
 
-The setup was kind of [messy](/videos/messy.gif) at this point, but I had what I needed to start messing around with the vehicle. I implemented a basic CAN reader [program](/code/CAN_reader/can_read.ino) using the MCP_CAN library. The program will monitor the OBDII port, and whenever it sees a CAN message, package it into a string and send that over a serial connection to the Raspberry Pi. I then wrote some [code](/code/CAN_reader/write_arduino_data_to_file.py) on the Raspberry Pi to watch for those packages and write them to a text file that I could review later.
+The setup was kind of messy at this point, but I had what I needed to start messing around with the vehicle. I implemented a basic CAN reader [program](/code/CAN_reader/can_read.ino) using the MCP_CAN library. The program will monitor the OBDII port, and whenever it sees a CAN message, package it into a string and send that over a serial connection to the Raspberry Pi. I then wrote some [code](/code/CAN_reader/write_arduino_data_to_file.py) on the Raspberry Pi to watch for those packages and write them to a text file that I could review later.
 
 ### Step 4 - Reverse engineer CAN message locations
 CAN messages are composed of a message identifier followed by some number of bytes of data (this is a simplification, but that's all you need to care about most of the time). So after running the setup from step 3 in-vehicle, I get a text file with a bunch of lines in it, and each line has a 3 digit number followed by some bytes in hex. The bytes contain information that the car's modules are passing to one another - a powertrain module might put a message on the bus that contains the coolant temperature in the first 4 bytes and engine RPM in the next 4 for example.
@@ -75,7 +75,7 @@ In order to detect what gear I am in at any point in time, I needed to find what
 
 ### Step 6 - Finish tachometer v1
 
-Now I had everything I needed. I modified the arduino code so that it only passed messages 0x110 and 0x280 to the Raspberry Pi, and set up the python script to parse the messages and display the current RPM and estimated gear. Everything worked pretty well at this stage, but I had a lot of cords, so I wanted to see what I could do about that. Code is [here](/code/Wired_Tach).
+Now I had everything I needed. I modified the arduino code so that it only passed messages 0x110 and 0x280 to the Raspberry Pi, and set up the python script to parse the messages and display the current RPM and estimated gear. Everything worked pretty well at this stage, but I had a lot of cords, so I wanted to see what I could do about that. Code is [here](/code/Wired_Tach). Click on the image below for a short video showing the setup at this point.
 
 [![Tachometer v1](https://img.youtube.com/vi/LojyD4g5m5Q/0.jpg)](https://www.youtube.com/watch?v=LojyD4g5m5Q)
 
@@ -90,7 +90,7 @@ There are 2 main types of things that you can read through an OBDII port:
 
 With the arduino, I was reading the first type of message. When I tried to do the same with the bluetooth reader, it would work for a few seconds but then tell me that the buffer overflowed and no more data could be read. I tried messing with filters, continuous resetting of the connection, and a few other things, but none of it allowed me to get a steady and stable stream of data like I had with the Arduino. It appeared to be a limitation of the bluetooth protocol - data would start piling up on the bluetooth reader faster than it could transmit to the Raspberry Pi. If the messages I was interested in were coming in at a slower rate, I might have been able to get this to work, but they weren't, so I couldn't. So I started playing with the second type of message (query-and-response).
 
-I identified the standard PIDs and scalings for engine speed and vehicle speed and wrote some code to rapidly query the bluetooth reader for both, and read its responses. If I asked for the information too often, it would fail to send the responses in time, so I had to settle on a compromise of speed and stability. In the end this method ended up being a little bit choppier than the original, but works just as well and has successfully been telling me what gear I'm in for a few months now. Code is [here](/code/Bluetooth_Tach). Below is a demonstration of where it ended up. 
+I identified the standard PIDs and scalings for engine speed and vehicle speed and wrote some code to rapidly query the bluetooth reader for both, and read its responses. If I asked for the information too often, it would fail to send the responses in time, so I had to settle on a compromise of speed and stability. In the end this method ended up being a little bit choppier than the original, but works just as well and has successfully been telling me what gear I'm in for a few months now. Code is [here](/code/Bluetooth_Tach). Click the images below for a couple short demo videos.
 
 INSERT LINK TO BLUETOOTH VIDEO
 
