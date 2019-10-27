@@ -92,8 +92,9 @@ With the arduino, I was reading the first type of message. When I tried to do th
 
 I identified the standard PIDs and scalings for engine speed and vehicle speed and wrote some code to rapidly query the bluetooth reader for both, and read its responses. If I asked for the information too often, it would fail to send the responses in time, so I had to settle on a compromise of speed and stability. In the end this method ended up being a little bit choppier than the original, but works just as well and has successfully been telling me what gear I'm in for a few months now. Code is [here](/code/Bluetooth_Tach). Click the images below for a couple short demo videos.
 
-[![Tachometer v1](https://img.youtube.com/vi/5aZ4WEWwpF8/0.jpg)](https://www.youtube.com/watch?v=5aZ4WEWwpF8)
+[![Tachometer v2 Demo 1](https://img.youtube.com/vi/5aZ4WEWwpF8/0.jpg)](https://www.youtube.com/watch?v=5aZ4WEWwpF8)
 
+[![Tachometer v2 Demo 2](https://img.youtube.com/vi/90ffRWdKQTk/0.jpg)](https://www.youtube.com/watch?v=90ffRWdKQTk)
 
 ## Final Thoughts
 
