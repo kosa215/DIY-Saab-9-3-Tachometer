@@ -86,7 +86,7 @@ At a minimum I knew I needed the Raspberry Pi, power to the Raspberry Pi, and so
 
 There are 2 main types of things that you can read through an OBDII port:
 1) CAN messages being sent between ECUs within the vehicle, which would be there whether you were plugged in or not
-2) CAN messages that are a response to your tool. In other words, you send a command through the port asking for some information, and the information returns to you as a response. WIKI LINK provides a pretty good overview on some of these.
+2) CAN messages that are a response to your tool. In other words, you send a command through the port asking for some information, and the information returns to you as a response. [Wikipedia](https://en.wikipedia.org/wiki/OBD-II_PIDs) provides a pretty good overview on some of these.
 
 With the arduino, I was reading the first type of message. When I tried to do the same with the bluetooth reader, it would work for a few seconds but then tell me that the buffer overflowed and no more data could be read. I tried messing with filters, continuous resetting of the connection, and a few other things, but none of it allowed me to get a steady and stable stream of data like I had with the Arduino. It appeared to be a limitation of the bluetooth protocol - data would start piling up on the bluetooth reader faster than it could transmit to the Raspberry Pi. If the messages I was interested in were coming in at a slower rate, I might have been able to get this to work, but they weren't, so I couldn't. So I started playing with the second type of message (query-and-response).
 
